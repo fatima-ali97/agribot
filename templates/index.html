@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--High CHART LIVE  -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+    <!--lottie-->
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
+    <!--lordicon-->
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <title>AgriBot</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+  </head>
+  <body>
+    <h1>AgriBot</h1>
+    <p class="tagline">your agriculture friend!</p>
+    <div class="container">
+      <div class="main">
+        <div class="humidityChart">
+          <h2>explore your AgriBot Data</h2>
+          <div>
+            <div id="chart1"></div>
+          </div>
+          <div>
+            <button>
+              <a href="/data" download="temp_humid.csv">
+                Download Humidity & Temperature data sheet(.CSV)
+              </a>
+            </button>
+          </div>
+          <div id="airQualityChart">
+            <div id="chart2"></div>
+            <button>
+              <a href="/data" download="temp_humid.csv"
+                >Download air quality data sheet(.CSV)</a
+              >
+            </button>
+          </div>
+        </div>
+        <div id="plants-container">
+          <div class="plant">
+            <h2>1st row</h2>
+            <lord-icon
+              src="https://cdn.lordicon.com/yuncjfyp.json"
+              trigger="loop"
+              delay="2000"
+              colors="primary:#fdfdfd,secondary:#daff8e"
+              style="width: 250px; height: 250px"
+            >
+            </lord-icon
+            ><span id="plant1">data</span>
+          </div>
+
+          <div class="plant">
+            <h2>2nd row</h2>
+            <lord-icon
+              src="https://cdn.lordicon.com/yuncjfyp.json"
+              trigger="loop"
+              delay="2000"
+              colors="primary:#fdfdfd,secondary:#daff8e"
+              style="width: 250px; height: 250px"
+            >
+            </lord-icon
+            ><span id="plant2">data</span>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="quick-actions">
+          <dotlottie-player
+            src="https://lottie.host/0a4d6df1-989e-4c54-89c6-8b373175bec7/RCmPAyHCRr.lottie"
+            background="transparent"
+            speed="1"
+            style="width: 100%; height: 100%"
+            loop
+            autoplay
+          ></dotlottie-player>
+        </div>
+        <div class="temperature" id="temperature">
+          <h2 style="color: #222">Temperature</h2>
+          <span id="ntemp">{{ntemp}}C</span>
+          <span id="time"></span>
+        </div>
+        <div id="links">
+          <ul>
+            <li>
+              <lord-icon
+                src="https://cdn.lordicon.com/gsjfryhc.json"
+                trigger="loop"
+                delay="1500"
+                stroke="bold"
+                state="in-reveal"
+                style="width: 30px; height: 30px"
+              ></lord-icon>
+              <span>About AgriBot</span>
+            </li>
+            <li>
+              <lord-icon
+                src="https://cdn.lordicon.com/gsjfryhc.json"
+                trigger="loop"
+                delay="1500"
+                stroke="bold"
+                state="in-reveal"
+                style="width: 30px; height: 30px"
+              ></lord-icon
+              ><span>Implementation</span>
+            </li>
+            <li>
+              <lord-icon
+                src="https://cdn.lordicon.com/gsjfryhc.json"
+                trigger="loop"
+                delay="1500"
+                stroke="bold"
+                state="in-reveal"
+                style="width: 30px; height: 30px"
+              ></lord-icon
+              ><span>The team</span>
+            </li>
+            <li>
+              <lord-icon
+                src="https://cdn.lordicon.com/gsjfryhc.json"
+                trigger="loop"
+                delay="1500"
+                stroke="bold"
+                state="in-reveal"
+                style="width: 30px; height: 30px"
+              ></lord-icon
+              ><span>References</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--my JS scripts-->
+    <script src="{{url_for('static', filename='humidityChart.js')}}"></script>
+    <script src="{{url_for('static', filename='updateTemp.js')}}"></script>
+    <script src="{{url_for('static', filename='updateMoisture.js')}}"></script>
+    <script src="{{url_for('static', filename='airQualityChart.js')}}"></script>
+    <!--update the status script
+    <script>
+      function updateStatus() {
+        fetch("/status")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            document.getElementById("status").innerText = `${data.status}`;
+            if (data.status === "connected") {
+              document.getElementById("status").classList.remove("fail");
+              document.getElementById("status").classList.add("active");
+            } else {
+              document.getElementById("status").classList.remove("active");
+              document.getElementById("status").classList.add("fail");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching status:", error);
+            document.getElementById("status").innerText = "Status: Error";
+          });
+      }
+      // Update status every second
+      setInterval(updateStatus, 1000);
+    </script>-->
+  </body>
+</html>

@@ -1,0 +1,155 @@
+body {
+  font-family: Poppins, sans-serif;
+  background-color: #fdfdfd;
+  margin: 0;
+  padding: 0;
+  color: #222222;
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 0;
+}
+p {
+  margin-top: 0;
+}
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.main {
+  min-width: 70%;
+
+  /*   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  border-radius: 8px;
+
+  margin-top: 20px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+.sidebar {
+  flex-grow: 1;
+
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.quick-actions {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fdfdfd;
+  color: #222222;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.humidityChart {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+h2 {
+  margin-top: 0px;
+}
+.sidebar div {
+  margin-bottom: 10px;
+}
+
+.temperature {
+  background-color: #daff8e;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.temperature h2 {
+  margin-bottom: 0;
+}
+.temperature span {
+  font-size: 90px;
+}
+a {
+  color: #222222;
+  text-decoration: none;
+  font-weight: 600;
+}
+button {
+  background-color: #daff8e;
+  border: none;
+  padding: 20px 30px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+#status {
+  margin: 0px 35px;
+  padding: 10px 0px;
+  border-radius: 5px;
+}
+.active {
+  background-color: #daff8e;
+}
+.fail {
+  background-color: #e9552c;
+  color: #fdfdfd;
+}
+
+#time {
+  font-size: 20px;
+  display: block;
+}
+
+#plants-container {
+  display: flex;
+
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  color: #fdfdfd;
+}
+.plant {
+  width: 48%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #0d5956;
+  border-radius: 8px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#links {
+  background-color: #daff8e;
+  color: #222222;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: max-content; /* Adjust to fit the content */
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+#links ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+#links ul li {
+  margin: 20px 0;
+  font-weight: 600;
+  display: flex; /* Align text and icon */
+  align-items: center; /* Vertically align items */
+  gap: 10px; /* Add space between icon and text */
+}
+
+#links ul li lord-icon {
+  margin-right: 16px;
+  flex-shrink: 0; /* Prevent the icon from shrinking */
+}
