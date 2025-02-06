@@ -29,7 +29,7 @@
   </head>
   <body>
     <h1>AgriBot</h1>
-    <p class="tagline">your agriculture friend!</p>
+    <p class="tagline">Your Agriculture Friend!</p>
     <div class="container">
       <div class="main">
         <div class="humidityChart">
@@ -51,33 +51,6 @@
                 >Download air quality data sheet(.CSV)</a
               >
             </button>
-          </div>
-        </div>
-        <div id="plants-container">
-          <div class="plant">
-            <h2>1st row</h2>
-            <lord-icon
-              src="https://cdn.lordicon.com/yuncjfyp.json"
-              trigger="loop"
-              delay="2000"
-              colors="primary:#fdfdfd,secondary:#daff8e"
-              style="width: 250px; height: 250px"
-            >
-            </lord-icon
-            ><span id="plant1">data</span>
-          </div>
-
-          <div class="plant">
-            <h2>2nd row</h2>
-            <lord-icon
-              src="https://cdn.lordicon.com/yuncjfyp.json"
-              trigger="loop"
-              delay="2000"
-              colors="primary:#fdfdfd,secondary:#daff8e"
-              style="width: 250px; height: 250px"
-            >
-            </lord-icon
-            ><span id="plant2">data</span>
           </div>
         </div>
       </div>
@@ -151,35 +124,6 @@
     <!--my JS scripts-->
     <script src="{{url_for('static', filename='humidityChart.js')}}"></script>
     <script src="{{url_for('static', filename='updateTemp.js')}}"></script>
-    <script src="{{url_for('static', filename='updateMoisture.js')}}"></script>
     <script src="{{url_for('static', filename='airQualityChart.js')}}"></script>
-    <!--update the status script
-    <script>
-      function updateStatus() {
-        fetch("/status")
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then((data) => {
-            document.getElementById("status").innerText = `${data.status}`;
-            if (data.status === "connected") {
-              document.getElementById("status").classList.remove("fail");
-              document.getElementById("status").classList.add("active");
-            } else {
-              document.getElementById("status").classList.remove("active");
-              document.getElementById("status").classList.add("fail");
-            }
-          })
-          .catch((error) => {
-            console.error("Error fetching status:", error);
-            document.getElementById("status").innerText = "Status: Error";
-          });
-      }
-      // Update status every second
-      setInterval(updateStatus, 1000);
-    </script>-->
   </body>
 </html>
