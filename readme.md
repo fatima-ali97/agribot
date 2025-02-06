@@ -8,7 +8,7 @@ AgriBot is an innovative project aimed at simplifying and automating farming and
 
 ## About this repo
 
-This github repository is a compilation of all the code used to make this project come to life, it includes (.ino) files as well as (.py) files.
+This github repository is a compilation of the code used to make this project come to life, it includes `.ino` files as well as `main.py` file, used to construct a simple dynamic dashboard for the AgriBot machine.
 
 ## circuit
 
@@ -17,10 +17,10 @@ To get the intended result from AgriBot.ino you will need to wire the circuit as
 
 hardware:
 
-- [ArduinoUNO] - The microcontroller used to control all sensors.
-- [DHT-11] - Humidity & Temperature sensor.
-- [LM393-Soil-Moisture-sensor] - Used to sense the soil's moisture.
-- [MQ135] - Air Quality sensor.
+- **ArduinoUNO** - The microcontroller used to control all sensors.
+- **DHT-11** - Humidity & Temperature sensor.
+- **LM393-Soil-Moisture-sensor** - Used to sense the soil's moisture.
+- **MQ135** - Air Quality sensor.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Before running the Python script, ensure the following prerequisites are met:
 in VS Code (or your preferred code editor) run the following command in the terminal
 
 ```Python
-  py main.py
+py main.py
 ```
 
 ## Contributing
