@@ -1,4 +1,3 @@
-
 import serial
 import pandas as pd
 import serial.tools.list_ports
@@ -6,11 +5,13 @@ import time
 import threading
 from flask import Flask, render_template, jsonify, send_from_directory
 from datetime import datetime
+
 # Flask app
 app = Flask(__name__)
 
 # Arduino setup
 try:
+    # Make sure that the COM number matches the board you have !
     arduino = serial.Serial(port='COM8', baudrate=9600, timeout=1)
 except serial.SerialException as e:
     print(f"Error initializing Arduino: {e}")
@@ -19,27 +20,22 @@ except PermissionError as e:
     print(f"Permission error: {e}. Ensure the port is not in use.")
     arduino = None
 
-# DHT sensor variables
+# DHT11 sensor variables
 temps = []
 humids = []
 times=[]
 counter = 1
 
-
-
+#Plant Moisture Sensor
 plantId=1
-latest_data =0 
+moistures=[]
 
-
+# Air Quality Sensor
 aqs=[]
+
 # Temperature endpoint storage
 temperature = {"temperature": "0"}
 new_temp = "0"
-
-# soil sensor
-moistures=[]
-
-
 
 
 @app.route('/')
@@ -49,9 +45,10 @@ def home():
 @app.route('/data')
 def data():
     return send_from_directory('.', 'temp_humid.csv')
+
 # Data collection function
 def collect_data():
-    global counter, temps, humids, new_temp, new_time, moistures,plantId, aqs, latest_data
+    global counter, temps, humids, new_temp, new_time, moistures,plantId, aqs
     while True:
         try:
             if arduino and arduino.in_waiting > 0:
