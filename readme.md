@@ -1,6 +1,7 @@
 # AgriBot
 
 AgriBot is one of the final projects at MIT International Science & Technology Initiatives (MISTI) in Bahrain for the year 2025.
+![AgriBot](./AgriBot.jpeg)
 
 ## Overview
 
