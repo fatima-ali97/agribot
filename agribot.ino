@@ -21,17 +21,6 @@ void setup(){
 }
 
 
-/* void readSerialPort() {
-msg = "";
-if (Serial.available()) {
-  delay(30);
-  while (Serial.available() > 0) {
-    msg += (char)Serial.read();
-  }
-  Serial.flush();
-}
-} */
-
 void loop(){
 
 
@@ -78,21 +67,7 @@ void loop(){
   }
   delay(500); // delay of 1 second
 }
-
-      /*Here are the connections
-      
-      Take a DHT11 sensor.
-      there, in the DHT11 sensor, there  are 3 or 4 pins.
-      There, on the DHT11 sensor, there is writen S, +, -
-      connect "S" on the digital pin 7.
-      connect "+" on the 5V pin on  Arduino.
-      connect "-" on the GND pin on Arduino.
-      */ 
-
-void recordSoil(){
-  
-}
-      
+ 
 int readSensor(int plantpin) {
  int sensorValue = analogRead(plantpin);  // Read the analog value from sensor
   int outputValue = map(sensorValue, 0, 1023, 255, 0); // map the 10-bit data to 8-bit data
