@@ -109,6 +109,7 @@ def collect_data():
             print(f"Error in data collection: {e}")
         time.sleep(1)
 
+# Track temperature
 @app.route('/ntemperature')
 def ntemperature():
     try:
