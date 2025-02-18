@@ -17,7 +17,7 @@ This github repository is a compilation of the code used to make this project co
 ## Circuit
 
 To get the intended result from AgriBot.ino you will need to wire the circuit as follows
-![circuit](./circuit/circuit.jpeg)
+![circuit](./assets/circuit.jpeg)
 
 Hardware:
 
