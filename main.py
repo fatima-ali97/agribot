@@ -5,10 +5,20 @@ import time
 import threading
 from flask import Flask, render_template, jsonify, send_from_directory
 from datetime import datetime
+#from flask_navigation import Navigation
+
 
 # Flask app
 app = Flask(__name__)
+#nav = Navigation(app)
 
+
+""" 
+# initializing Navigations 
+nav.Bar('top', [ 
+    nav.Item('Home', 'index'), 
+    nav.Item('Team', 'Team',), 
+])  """
 # Arduino setup
 try:
     # Make sure that the COM number matches the board you have !
@@ -132,6 +142,11 @@ def moisture():
 def airQuality():
     return send_from_directory('.', 'aq.csv')
 
+
+@app.route('/team') 
+def team(): 
+    return render_template('team.html') 
+  
 # Start data collection thread
 if arduino:
     data_thread = threading.Thread(target=collect_data, daemon=True)

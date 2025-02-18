@@ -153,3 +153,47 @@ button {
   margin-right: 16px;
   flex-shrink: 0; /* Prevent the icon from shrinking */
 }
+
+/*================================= team page =================================*/
+.team {
+  padding: 10px 30px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  margin: 10px;
+  height: 350px;
+
+  border-radius: 20px;
+}
+
+.member {
+  display: flex;
+  justify-content: center;
+  color: var(--second-color);
+  text-align: center;
+
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #daff8e;
+  height: 300px;
+  border-radius: 8px;
+  width: 300px;
+  margin: 10px;
+}
+
+.member img {
+  width: 40%;
+}
+
+.member a {
+  display: block;
+
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 8px;
+  background-color: #0d5956;
+}
